@@ -1,29 +1,57 @@
+/* style.css */
+
+:root {
+  --bg: #ffffff;
+  --text: #000000;
+  --box-shadow: rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode {
+  --bg: #121212;
+  --text: #ffffff;
+  --box-shadow: rgba(255, 255, 255, 0.1);
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f4f4f4;
+  background-color: var(--bg);
+  color: var(--text);
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
 }
 
 .container {
   text-align: center;
+  padding: 20px;
 }
 
-h1 {
-  margin-bottom: 20px;
-  color: #333;
+header h1 {
+  margin-bottom: 10px;
+}
+
+header p a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: bold;
+}
+
+.tools {
+  margin: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
 }
 
 .palette {
   display: flex;
-  gap: 10px;
-  justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 20px;
+  gap: 15px;
+  justify-content: center;
 }
 
 .color-box {
@@ -31,8 +59,10 @@ h1 {
   height: 120px;
   border-radius: 10px;
   position: relative;
+  box-shadow: 0 0 10px var(--box-shadow);
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: transform 0.2s, background-color 0.5s;
+  overflow: hidden;
 }
 
 .color-box:hover {
@@ -46,23 +76,57 @@ h1 {
   right: 0;
   text-align: center;
   font-weight: bold;
-  color: #fff;
-  background: rgba(0,0,0,0.3);
+  color: white;
+  background: rgba(0, 0, 0, 0.3);
   padding: 5px;
-  border-radius: 0 0 10px 10px;
   font-size: 14px;
 }
 
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  background-color: #333;
+.lock {
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  font-size: 18px;
   color: white;
-  border-radius: 5px;
-  cursor: pointer;
 }
 
-button:hover {
+button, select {
+  padding: 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--text);
+  color: var(--bg);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover, select:hover {
   background-color: #555;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: var(--text);
+  color: var(--bg);
+}
+
+#toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #333;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  display: none;
+  animation: fadeInOut 2s ease-in-out;
+}
+
+@keyframes fadeInOut {
+  0% {opacity: 0;}
+  10% {opacity: 1;}
+  90% {opacity: 1;}
+  100% {opacity: 0;}
 }

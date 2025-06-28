@@ -2,16 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Color Palette Generator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Color Palette Generator - Rhythm</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <h1>Color Palette Generator</h1>
+    <header>
+      <h1>Color Palette Generator 🎨</h1>
+      <p>Made by <a href="https://github.com/rhythmchoudhary" target="_blank">Rhythm Choudhary</a></p>
+    </header>
+
+    <div class="tools">
+      <label>Format:
+        <select id="formatSelect">
+          <option value="hex">HEX</option>
+          <option value="rgb">RGB</option>
+          <option value="hsl">HSL</option>
+        </select>
+      </label>
+      <button onclick="toggleDarkMode()">Toggle Dark Mode 🌙</button>
+      <button onclick="downloadPalette()">Download Palette 📥</button>
+      <button onclick="savePalette()">Save Palette 💾</button>
+      <button onclick="viewSavedPalettes()">View Saved 📂</button>
+      <button onclick="generateColors()">Refresh Palette 🔄</button>
+    </div>
+
     <div class="palette" id="palette"></div>
-    <button onclick="generateColors()">Refresh Palette</button>
+    <div id="toast"></div>
   </div>
+
+  <footer>
+    <p>&copy; 2025 Rhythm Choudhary | <a href="https://www.linkedin.com/in/rhythmchoudhary/" target="_blank">LinkedIn</a></p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
